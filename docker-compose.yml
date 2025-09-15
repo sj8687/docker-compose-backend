@@ -1,32 +1,32 @@
-# version: "3.8"
+version: "3.8"
 
-# services:
-#   postgres:
-#     image: postgres:14
-#     container_name: postgres_db
-#     restart: always
-#     ports:
-#       - "5432:5432"
-#     environment:
-#       POSTGRES_USER: postgres
-#       POSTGRES_PASSWORD: mypassword
-#       POSTGRES_DB: postgres
-#     volumes:
-#       - dbdata:/var/lib/postgresql/data
+services:
+  postgres:
+    image: postgres:14
+    container_name: postgres_db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: postgres
+    volumes:
+      - dbdata:/var/lib/postgresql/data
 
-#   app:
-#     build:
-#       network: host
-#       context: .
-#       dockerfile: Dockerfile
-#     container_name: express_app
-#     restart: always
-#     ports:
-#       - "3000:3000"
-#     environment:
-#       DATABASE_URL: postgresql://postgres:mypassword@postgres:5432/postgres
-#     depends_on:
-#       - postgres
+  app:
+    build:
+      network: host
+      context: .
+      dockerfile: Dockerfile
+    container_name: express_app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://postgres:mypassword@postgres:5432/postgres
+    depends_on:
+      - postgres
 
-# volumes:
-#   dbdata:
+volumes:
+  dbdata:
