@@ -26,5 +26,5 @@ jobs:
           push: true
           tags: shreyash8687/my-backend:${{ github.sha }}
 
-      - name: Deploy Docker Container on EC2
+      - name: Deploy Docker Container on aws
        
